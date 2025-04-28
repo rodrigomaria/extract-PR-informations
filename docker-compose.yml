@@ -1,0 +1,6 @@
+services:
+  scraper:
+    build: .
+    volumes:
+      - ./:/app
+    container_name: pr-scraper
