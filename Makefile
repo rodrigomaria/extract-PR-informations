@@ -13,7 +13,7 @@ help:
 	@echo "Available commands:"
 	@echo "  make build    - Build the Docker image for the scraper"
 	@echo "  make run      - Run the scraper to extract PR information"
-	@echo "  make clean    - Remove Docker containers and images"
+	@echo "  make clean    - Remove content from page_for_scrape folder and clear issues_to_publish.txt"
 	@echo "  make help     - Show this help message"
 
 # Build the Docker image
@@ -24,10 +24,12 @@ build:
 run:
 	$(DOCKER_COMPOSE) run --rm scraper
 
-# Clean up Docker resources
+# Clean the project
 clean:
-	$(DOCKER_COMPOSE) down
-	docker rmi pr-scraper || true
+	@echo "Cleaning page_for_scrape folder and issues_to_publish.txt..."
+	@rm -rf page_for_scrape/* 
+	@echo "" > issues_to_publish.txt
+	@echo "Clean completed successfully!"
 
 # All-in-one command: build and run
 all: build run
