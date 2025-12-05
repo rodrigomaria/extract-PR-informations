@@ -4,3 +4,5 @@ services:
     volumes:
       - ./:/app
     container_name: pr-scraper
+    entrypoint: []  # Override Dockerfile ENTRYPOINT
+    command: tail -f /dev/null  # Keep container running
