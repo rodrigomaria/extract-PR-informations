@@ -1,3 +1,5 @@
 # Ignore contents of the page_for_scrape folder but keep the folder itself
 page_for_scrape/*
 !page_for_scrape/.gitkeep
+
+.DS_Store
